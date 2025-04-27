@@ -7,14 +7,20 @@ const blogSchema = new mongoose.Schema({
         required:[true, " Please enter your Title "],
         lowercase: true,
     },
-    description:{
+    content:{
         type:String,
-        required:[true, " Please enter Description "],
+        required:[true, " Please enter content "],
         trim: true,
         lowercase: true,
     },
-    coverImage:{
+    coverImage: {
+        public_id: { type: String },
+        url: { type: String },
+    },
+    category:{
         type:String,
+        required:[true, " Please enter Category "],
+        lowercase: true,
     },
     tags:{
         type:[String]

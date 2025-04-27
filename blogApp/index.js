@@ -4,6 +4,7 @@ import cors from "cors"
 import cookieParser from "cookie-parser"
 import { connectDB } from "./config/db.js"
 import userRoutes from "./routes/user.routes.js"
+import blogRoutes from "./routes/blog.routes.js"
 
 
 
@@ -25,6 +26,7 @@ connectDB()
 
 // Routes
 app.use("/api/v1/auth", userRoutes)
+app.use("/api/v1/blogs", blogRoutes)
 
 const port = process.env.PORT || 5000
 
