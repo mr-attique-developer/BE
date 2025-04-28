@@ -5,6 +5,8 @@ import cookieParser from "cookie-parser"
 import { connectDB } from "./config/db.js"
 import userRoutes from "./routes/user.routes.js"
 import blogRoutes from "./routes/blog.routes.js"
+import likeRoutes from "./routes/like.routes.js"
+import commentRoutes from "./routes/comment.routes.js"
 
 
 
@@ -27,6 +29,8 @@ connectDB()
 // Routes
 app.use("/api/v1/auth", userRoutes)
 app.use("/api/v1/blogs", blogRoutes)
+app.use("/api/v1/like", likeRoutes)
+app.use("/api/v1/comment", commentRoutes)
 
 const port = process.env.PORT || 5000
 

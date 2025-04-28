@@ -47,6 +47,12 @@ export const createBlog  = async(req, res) => {
 export const getAllBlogs = async (req, res) => {
     try {
         const blogs = await Blog.find().populate("author", "name email")
+        if(!blogs){
+            return res.status(404).json({
+                success: false,
+                message: "No Blogs found"
+            })
+        }
         res.status(200).json({
             success: true,
             message: "All Blogs Fetched successfully",
